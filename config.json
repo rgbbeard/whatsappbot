@@ -1,0 +1,14 @@
+{
+    "browsers": {
+        "firefox": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+        "chrome": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+        "edge": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    },
+    "icons": {
+        "firefox": "C:\\Program Files\\Mozilla Firefox\\browser\\VisualElements\\VisualElements_150.png",
+        "chrome": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\89.0.4389.90\\VisualElements\\Logo.png",
+        "edge": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\89.0.774.57\\VisualElements\\Logo.png"
+    },
+    "default": "firefox",
+    "status": ""
+}
