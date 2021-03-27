@@ -1,12 +1,12 @@
 from functools import partial
 from os.path import exists
 from win_webdriver import *
-import pyautogui
+from pyautogui import size
 from tkinter import *
 
 
 def getScreenSize() -> str:
-    width, height = pyautogui.size()
+    width, height = size()
     return str(width)+"x"+str(height)
 
 
