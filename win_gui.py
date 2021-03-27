@@ -1,51 +1,102 @@
-import re
+from functools import partial
 from os.path import exists
-from win_webdriver import getConfig
-from pyautogui import size
+from win_webdriver import *
+import pyautogui
 from tkinter import *
 
 
 def getScreenSize() -> str:
-    width, height = size()
+    width, height = pyautogui.size()
     return str(width)+"x"+str(height)
 
 
-def saveSettings(data: dict):
-
+def saveSettings():
     pass
 
 
+def openAction(browser: str = "", col: int = 0):
+    saveSettings()
+    print(col)
+    # openBrowser(browser)
+
+
+def minimizeWindow(winroot: Tk):
+    winroot.wm_state("iconic")
+
+
+def closeWindow(winroot: Tk):
+    winroot.destroy()
+
+
+def displayActionsBar(winroot: Tk):
+    # Minimize window button
+    min = Button(
+        winroot,
+        width="4",
+        text="-",
+        bg="#f90",
+        fg="#fff",
+        justify="center",
+        relief="flat",
+        command=partial(minimizeWindow, winroot)
+    )
+    min.grid(row=0, column=0, padx=5, sticky="w")
+
+    # Close window button
+    cls = Button(
+        winroot,
+        width="4",
+        text="x",
+        bg="#d00",
+        fg="#fff",
+        justify="center",
+        relief="flat",
+        command=partial(closeWindow, winroot)
+    )
+    cls.grid(row=0, column=0, padx=5)
+
+
 def displayAvailableBrowsers(browsers: list, winroot: Tk):
-    Label(winroot, text="Scegli il browser con cui far partire il programma").pack()
+    Label(
+        winroot, text="Scegli il browser con cui far partire il programma",
+        font="20"
+    ).grid(row=1)
+
+    col = 0
 
     for browser in browsers:
         if exists(browsers[browser]):
-            radioState = NORMAL
-            icon = "./icon.png"  # getConfig("icons")[browser]
+            browserName = browser
+            text = browser.capitalize()
+            buttonState = "#0cc"
+            buttonStateColor = "#fff"
 
             # Select the default browser
-            if browser == getConfig("default"):
-                radioState = ACTIVE
+            if browser in getConfig("default"):
+                buttonState = "#cc0"
+                buttonStateColor = "#fff"
 
-            if not exists(getConfig("icons")[browser]):
-                icon = "./icon.png"
-
-            # Normalize image path
-            icon = re.sub(r"/\\+/", "/", icon)
-            image = PhotoImage(icon).zoom(32, 32)
-
-            Radiobutton(
+            Button(
                 winroot,
-                image=image,
-                text=browser.capitalize(),
-                textvariable="browser",
-                value=browser,
-                state=radioState
-            ).pack(anchor=W)
+                width="10",
+                height="2",
+                text=text,
+                justify="center",
+                bg=buttonState,
+                fg=buttonStateColor,
+                font="10",
+                activebackground="#05e",
+                relief="flat",
+                command=partial(openAction, browserName, col)
+            ).grid(row=2, column=col, padx=5)
+
+            col += 1
 
 
 winroot = Tk()
-winroot.title("Whatsapp robot")
-winroot.geometry("800x800")
+winroot.wm_attributes('-fullscreen', 'true')
+
+displayActionsBar(winroot)
 displayAvailableBrowsers(getConfig("browsers"), winroot)
+
 winroot.mainloop()
