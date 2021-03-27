@@ -13,7 +13,7 @@ whatsapp chat object title content location attribute -> title
 whatsapp chat object single chat identifier type -> div
 whatsapp chat object single chat identifier class -> "IGI1I"
 ####################################
-## Group chats don't have that element ;) ##
+## Group chats don't have this element ;) ##
 ####################################
 
 whatsapp chat object notificator type -> div
