@@ -1,0 +1,18 @@
+whatsapp document event -> scroll
+whatsapp document event scroll action -> load chats 
+
+whatsapp chat object class -> "_2aBzC"
+whatsapp chat object event -> click
+
+whatsapp chat object title class -> "_3Dr46"
+whatsapp chat object title child type -> span
+
+whatsapp chat object notificator type -> div
+whatsapp chat object notificator class -> "_2TiQe"
+
+whatsapp chat object notificator messages count type -> span
+whatsapp chat object notificator messages count class -> "_38M1B"
+
+whatsapp input text type -> div
+whatsapp input text class -> "_2_1wd"
+whatsapp input text attribute -> contenteditable

@@ -4,3 +4,4 @@ from win_webdriver import getConfig
 
 def watchMessages():
     pass
+
