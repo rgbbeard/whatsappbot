@@ -9,6 +9,10 @@
         "chrome": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\89.0.4389.90\\VisualElements\\Logo.png",
         "edge": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\89.0.774.57\\VisualElements\\Logo.png"
     },
-    "default": "chrome",
-    "status": ""
+    "default": "edge",
+    "status": "busy",
+    "messages": {
+        "busy": "Sono impegnato",
+        "sleeping": "Sto dormendo"
+    }
 }

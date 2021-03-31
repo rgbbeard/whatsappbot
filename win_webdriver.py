@@ -1,34 +1,19 @@
 import os
-import json
-from subprocess import *
+import webbrowser
+from win_system import getConfig
 
 # Verify that the script is running on windows
 if "nt" not in os.name:
     exit()
 
 
-def getConfig(configName: str):
-    config = open("config.json", "r").read()
-    config = json.loads(config)
-    if configName in config:
-        return config[configName]
-    else:
-        return None
-
-
 def openBrowser(selectedBrowser: str = getConfig("default")):
     if selectedBrowser == "":
-        selectedBrowser = "firefox"
+        selectedBrowser = "edge"
 
     # Open the browser
-    browser = Popen(
-        [
-            getConfig("browsers")[selectedBrowser],
-            "web.whatsapp.com/"
-        ],
-        stdin=PIPE,
-        stdout=PIPE,
-        stderr=PIPE
-    )
+    path = str(getConfig("browsers")[selectedBrowser]).replace("\\", "/")
 
-    browserError = browser.returncode
+    browser = webbrowser.get(path+" %s")
+    browser.open("web.whatsapp.com")
+    return browser
