@@ -12,9 +12,9 @@ whatsapp chat object title content location attribute -> title
 
 whatsapp chat object single chat identifier type -> div
 whatsapp chat object single chat identifier class -> "IGI1I"
-####################################
+############################################
 ## Group chats don't have this element ;) ##
-####################################
+############################################
 
 whatsapp chat object notificator type -> div
 whatsapp chat object notificator class -> "_2TiQe"
@@ -25,3 +25,10 @@ whatsapp chat object notificator messages count class -> "_38M1B"
 whatsapp input text type -> div
 whatsapp input text class -> "_2_1wd"
 whatsapp input text attribute -> contenteditable
+
+
+
+##############
+LOGIN PAGE
+##############
+characteristic class -> b77wc
